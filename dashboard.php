@@ -30,13 +30,10 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
           </li>
-
-
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
           </li>
         </ul>
-
         <button class="btn btn-primary" type="submit" style="width: 100px;   background-color: #053CC9;">Book Now</button>
       </div>
     </div>
@@ -83,7 +80,7 @@
 
 
   <section id="live_event">
-  <div class="row justify-content-center ">
+  <div class="row justify-content-center">
     <div class="title">
       <h1 style="text-align: center; margin-top: 70px; margin-bottom: 10px; font-weight: 700; font-size: 40px;">Available cars</h1>
       <p style="text-align: center; margin-bottom: 70px">Book your car fast!!</p>
@@ -98,10 +95,9 @@
       }
       $dataMobil = getDataMobil($collection);
 
-      // Loop through each car data and display it in a card
       foreach ($dataMobil as $mobil) {
     ?>
-    <div class="col-md-3 mb-3">
+    <div class="col-md-3 m-1 p-4">
       <div class="card" style="width: 18rem; height: 100%;">
         <img src="<?php echo $mobil['gambar']; ?>" class="card-img-top" style="height: 200px; object-fit: cover;" alt="..."> <!-- Set height and object-fit for image -->
         <div class="card-body">
