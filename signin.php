@@ -31,7 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     timer: 1500,
                     icon: 'success'
                 }).then(() => {
-                    window.location.href = 'dashboard.php';
+                    // Redirect to admin.php if the username is 'admin'
+                    if ('$username' === 'admin') {
+                        window.location.href = 'admin/admin.php';
+                    } else {
+                        window.location.href = 'dashboard.php';
+                    }
                 });
             </script>";
     } else {
@@ -46,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 
 

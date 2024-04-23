@@ -83,50 +83,40 @@
 
 
   <section id="live_event">
-    <div class="row justify-content-center ">
-      <div class="title">
-        <h1 style="text-align: center; margin-top : 70px;margin-bottom :10px ; font-weight : 700; font-size : 40px;">Availabale cars</h1>
-        <p style="text-align: center; margin-bottom : 70px">Book your car fast!!</p>
-      </div>
+  <div class="row justify-content-center ">
+    <div class="title">
+      <h1 style="text-align: center; margin-top: 70px; margin-bottom: 10px; font-weight: 700; font-size: 40px;">Available cars</h1>
+      <p style="text-align: center; margin-bottom: 70px">Book your car fast!!</p>
+    </div>
 
-      <div class="col-md-3 mb-3">
-        <div class="card" style="width: 18rem;">
-          <img src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fENhcnxlbnwwfHwwfHx8MA%3D%3D" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">BMW I7 2023</h5>
-            <p class="card-text">BMW INDONESIA</p>
-            <p class="card-text "><small class="text-body-secondary">Available</small></p>
-            <a href="#" class="btn btn-primary">Hubungi kami</a>
-          </div>
-        </div>
-      </div>
+    <?php
+      require 'config.php';
 
-      <div class="col-md-3 mb-3">
-        <div class="card" style="width: 18rem;">
-          <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Mercedez Benz New GLA</h5>
-            <p class="card-text">Mercedez Benz Indonesia</p>
-            <p class="card-text "><small class="text-body-secondary">Available</small></p>
-            <a href="#" class="btn btn-primary">Hubungi kami</a>
-          </div>
-        </div>
-      </div>
+      $collection = $database->selectCollection("data_car");
+      function getDataMobil($collection) {
+        return $collection->find([]);
+      }
+      $dataMobil = getDataMobil($collection);
 
-      <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-          <img src="https://images.unsplash.com/photo-1542228262-3d663b306a53?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Nissan Type GT-R</h5>
-            <p class="card-text">Nissan Indonesia</p>
-            <p class="card-text "><small class="text-body-secondary">Available</small></p>
-            <a href="#" class="btn btn-primary">Hubungi kami</a>
-          </div>
+      // Loop through each car data and display it in a card
+      foreach ($dataMobil as $mobil) {
+    ?>
+    <div class="col-md-3 mb-3">
+      <div class="card" style="width: 18rem; height: 100%;">
+        <img src="<?php echo $mobil['gambar']; ?>" class="card-img-top" style="height: 200px; object-fit: cover;" alt="..."> <!-- Set height and object-fit for image -->
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $mobil['nama_mobil']; ?></h5>
+          <p class="card-text"><?php echo $mobil['brand']; ?></p>
+          <p class="card-text"><small class="text-body-secondary"><?php echo $mobil['status']; ?></small></p>
+          <a href="#" class="btn btn-primary">Contact us</a>
         </div>
       </div>
     </div>
-  </section>
-
+    <?php
+      }
+    ?>
+  </div>
+</section>
 
 
    <!-- Logo partner section -->
